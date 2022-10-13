@@ -5,7 +5,7 @@ const bodyparser = require('body-parser');
 const path = require("path");
 const connectDB = require('./server/database/connection');
 const app = express();
-const flast = require('connect-flash')
+const flash = require('connect-flash')
 const session = require('express-session')
 
 dotenv.config({path:'config.env'});
@@ -19,6 +19,30 @@ connectDB();
 
 // parse request to body-parser
 app.use(bodyparser.urlencoded({extended: true}));
+
+
+//Express Session
+
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true,
+
+}))
+
+
+//Connect flash
+
+app.use(flash());
+
+
+//Global Vars
+
+app.use((req, res, next) =>{
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg')
+    next();
+})
 
 // set view engine
 app.set("view engine", "ejs")
