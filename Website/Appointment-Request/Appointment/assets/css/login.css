@@ -286,13 +286,16 @@ input[type=email], input[type=password]{
 
 
 .back{
-    transform: rotate(180deg);
+   width: 5%;
+}
 
+.home{
+    width: 5%;
 }
 
 .back-container{
     position: absolute;
-    left: 32%;
+    left: 30%;
     top: 18%;
 }
 
