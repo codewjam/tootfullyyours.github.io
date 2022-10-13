@@ -16,6 +16,8 @@ const { ensureAuthenticated } = require('../config/auth')
 
 
 
+
+
 // Routes for Home Route/Starting Route
 
 route.get('/Request', services.Request)
@@ -63,6 +65,7 @@ route.delete('/history/:id', controller2.delete);
 
 // Login
 
+//Go to Financial Statement Page
 
 
 //Go to login page
