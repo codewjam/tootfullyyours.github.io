@@ -94,6 +94,8 @@ nav{
     position: relative;
     text-decoration: none;
     color: white;
+    font-weight: 500;
+    font-size: 1.2rem;
 
 }
 
@@ -122,6 +124,47 @@ nav{
     color: var(--bg-header);
     cursor: pointer;
 }
+
+.loginBtn{
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 0.5rem 3.5rem;
+    border-radius: 10px;
+    border: 2px solid white;
+    background-color: var(--bg-header);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.loginBtn:hover{
+    
+    border: 2px solid white;
+    background-color: white;
+    color: #1EBEB6;
+    cursor: pointer;
+   
+
+  
+}
+
+nav ul li a::after{
+    content: "";
+    display: block;
+    /* margin: auto;  // It will start at mid*/ 
+    margin-top: 0.25rem;
+    height: 3px;
+    width: 0px;
+    background: transparent;
+    transition: width 0.5s ease, background-color .5s ease;
+}
+
+nav ul li a:hover:after{
+    width: 100%;
+    background: var(--white);
+}
+
+
+
 
 
 

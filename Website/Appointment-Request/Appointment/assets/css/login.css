@@ -283,3 +283,20 @@ input[type=email], input[type=password]{
     cursor: pointer;
         
 }
+
+
+.back{
+    transform: rotate(180deg);
+
+}
+
+.back-container{
+    position: absolute;
+    left: 32%;
+    top: 18%;
+}
+
+.back-container a{
+   text-decoration: none;
+   color: #1EBEB6;
+}

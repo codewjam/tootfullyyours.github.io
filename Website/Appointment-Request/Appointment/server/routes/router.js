@@ -114,10 +114,16 @@ route.post('/login',(req, res)=>{
 
 //route for logout
 
-route.get('/logout', (req, res, next) =>{
-    req.logout();
-    req.flash('success_msg', 'You are logged out!');    
-    res.redirect("/");
+route.get('/logout', (req, res,next) =>{
+    req.logout((err)=>{
+        if(err){
+            return next(err)
+        }else{
+            req.flash('success_msg', 'You are logged out!');    
+            res.redirect("/login");
+        }
+    });
+ 
 })
 
  route.get('/', (req, res) =>{

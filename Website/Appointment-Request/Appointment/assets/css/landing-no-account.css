@@ -38,11 +38,35 @@ nav{
     margin:  0 20px;
 }
 
+
 .right-nav ul li a{
+    position: relative;
     text-decoration: none;
     color: white;
+    font-weight: 500;
+    font-size: 1.2rem;
 
 }
+
+
+nav ul li a::after{
+    content: "";
+    display: block;
+    /* margin: auto;  // It will start at mid*/ 
+    margin-top: 0.25rem;
+    height: 3px;
+    width: 0px;
+    background: transparent;
+    transition: width 0.5s ease, background-color .5s ease;
+}
+
+nav ul li a:hover:after{
+    width: 100%;
+    background: var(--white);
+}
+
+
+
 
 .left-nav a{
     color: #fff;
@@ -50,23 +74,41 @@ nav{
     text-decoration: none;
 }
 .loginBtn{
-    font-size: 15px;
-    font-weight: 600;
-    padding: 8px 20px;
-    width: 150px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 0.5rem 3.5rem;
     border-radius: 10px;
-    border: none;
-    background-color: white;
-    color:#1EBEB6;
-    margin-right: 50px;
+    border: 2px solid white;
+    background-color: var(--bg-header);
+    color: var(--white);
     cursor: pointer;
 }
 
 .loginBtn:hover{
     
-    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid white;
+    background-color: white;
+    color: #1EBEB6;
+    cursor: pointer;
+   
 
   
+}
+
+nav ul li a::after{
+    content: "";
+    display: block;
+    /* margin: auto;  // It will start at mid*/ 
+    margin-top: 0.25rem;
+    height: 3px;
+    width: 0px;
+    background: transparent;
+    transition: width 0.5s ease, background-color .5s ease;
+}
+
+nav ul li a:hover:after{
+    width: 100%;
+    background: white;
 }
 
 
