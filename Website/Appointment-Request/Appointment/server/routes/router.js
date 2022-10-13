@@ -11,6 +11,12 @@ const services2 = require("../services/history_render");
 const controller2 = require("../controller/history_controller");
 const controller3 = require("../controller/login_controller");
 
+var appointmentRequestdb = require('../model/model')
+var Historydb = require('../model/history_model')
+var Appointdb = require('../model/appointment_model')
+var NewUserdb = require('../model/login_model')
+
+
 // Routes for Home Route/Starting Route
 
 route.get('/Request', services.Request)
@@ -60,10 +66,7 @@ route.delete('/history/:id', controller2.delete);
 
 // Login
 
-const credential = {
-    email: "admin@gmail.com",
-    password: "admin123"
-}
+
 
 //Go to login page
 
