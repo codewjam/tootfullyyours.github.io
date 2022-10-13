@@ -114,9 +114,10 @@ route.post('/login',(req, res)=>{
 
 //route for logout
 
-route.get('/logout', (req, res) =>{
-
-    res.render("home_body", {title: "ToothFully", logout: "Logout Successfully"})
+route.get('/logout', (req, res, next) =>{
+    req.logout();
+    req.flash('success_msg', 'You are logged out!');    
+    res.redirect("/");
 })
 
  route.get('/', (req, res) =>{
