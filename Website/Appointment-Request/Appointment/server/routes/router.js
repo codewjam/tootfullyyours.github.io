@@ -10,11 +10,9 @@ const controller1 = require("../controller/employee_controller");
 const services2 = require("../services/history_render");
 const controller2 = require("../controller/history_controller");
 const controller3 = require("../controller/login_controller");
+const passport =require('passport')
 
-var appointmentRequestdb = require('../model/model')
-var Historydb = require('../model/history_model')
-var Appointdb = require('../model/appointment_model')
-var NewUserdb = require('../model/login_model')
+
 
 
 // Routes for Home Route/Starting Route
@@ -85,17 +83,12 @@ route.get("/register", (req, res)=>{
 
 
 // login user
-route.post('/login',(req, res)=>{
-    var email = req.body.email
-    var username = req.body.username
-    var password = req.body.password
-
-    if((email == NewUserdb.findOne({p_email: email}) || username == NewUserdb.findOne({p_username: username})) && password == NewUserdb.find({p_password: password})){
-        res.redirect('/add-appointmentRequest');
-
-    }else{
-        res.end("Invalid Username!")
-    }   
+route.post('/login',(req, res, next)=>{
+    passport.authenticate('local', {
+        successRedirect: '/add-appointmentRequest',
+        failureRedirect: '/login',
+        failureFlash: true
+    })(req, res, next)
 })
 
 //route for appointmentRequest
@@ -112,12 +105,10 @@ route.get("/add-appointmentRequest", (req, res)=>{
 
 
 route.post('/login',(req, res)=>{
-    if(req.body.email == credential.email && req.body.password == credential.password){
+   
         res.redirect('/add-appointmentRequest');
 
-    }else{
-        res.end("Invalid Username!")
-    }   
+   
 })
 
 

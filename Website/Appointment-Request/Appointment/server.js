@@ -6,10 +6,15 @@ const path = require("path");
 const connectDB = require('./server/database/connection');
 const app = express();
 const flash = require('connect-flash')
-const session = require('express-session')
+const session = require('express-session');
+const passport =require('passport')
 
 dotenv.config({path:'config.env'});
 const PORT = process.env.PORT || 8080;
+
+//passport config
+
+require('./config/passport')(passport);
 
 // log request
 app.use(morgan('tiny'));
@@ -30,6 +35,10 @@ app.use(session({
 
 }))
 
+//Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 //Connect flash
 
@@ -40,9 +49,12 @@ app.use(flash());
 
 app.use((req, res, next) =>{
     res.locals.success_msg = req.flash('success_msg');
-    res.locals.error_msg = req.flash('error_msg')
-    next();
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error'); 
+    next(); 
 })
+
+
 
 // set view engine
 app.set("view engine", "ejs")

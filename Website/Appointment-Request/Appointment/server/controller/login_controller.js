@@ -22,7 +22,7 @@ exports.create = (req,res)=>{
             errors, username, email, password, password2
         })
     }else{
-        NewUserdb.findOne({p_email: email} || {p_username: email} ).then(user =>{
+        NewUserdb.findOne({p_email: email}).then(user =>{
             if(user){
                 errors.push({message: "Email is already registered"});
                 res.render("register_body", {
