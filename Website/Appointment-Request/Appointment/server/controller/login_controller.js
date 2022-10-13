@@ -1,35 +1,61 @@
 var NewUserdb = require('../model/login_model')
+const bcrypt = require("bcrypt")
 
 // create and save new appointmentRequest
 exports.create = (req,res)=>{
     // validate request
+    const {username, email, password, password2} = req.body;
+    let errors = []
 
-    if(!req.body){
-        res.status(400).send({message: "Content can not be empty!"});
-        return;
+    // Check required fields
+    if(!username || !email || !password || !password2){
+        errors.push({message: "Please fill in all fields"})
     }
 
-    const User = new NewUserdb({
-        p_username: req.body.p_username,
-        p_email: req.body.p_email,
-        p_password: req.body.p_password,
-        p_cpassword: req.body.p_cpassword,
+    // Check password match
+    if(password !== password2){
+        errors.push({message: "Password do not match"})
+    }
 
-     
-    })
-
-    // save appointmentRequest in the database
-
-    User
-        .save(User)
-        .then(data =>{
-            res.send(data);
+    if (errors.length > 0){
+        res.render("register_body", {
+            errors, username, email, password, password2
         })
-        .catch(err =>{
-            res.status(500).send({
-                message: err.message || "Some error occured while creating a create operation"
-            });
-        });
+    }else{
+        NewUserdb.findOne({p_email: email}).then(user =>{
+            if(user){
+                errors.push({message: "Email is already registered"});
+                res.render("register_body", {
+                    errors, username, email, password, password2
+                });
+            } else{
+                const User = new NewUserdb({
+                    p_username: req.body.username,
+                    p_email: req.body.email,
+                    p_password: req.body.password
+                
+                });
+
+                // new password hash
+
+                bcrypt.genSalt(10, (err, salt)=> bcrypt.hash(User.p_password, salt, (err, hash)=>{
+                    if(err) throw err;
+
+                    User.p_password = hash;
+                    User.save()
+                    .then(user =>{
+                        res.redirect('/login')
+                    })
+                    .catch(err=> console.log(err))
+                }))
+            }
+           
+        })
+    }
 
 
+
+ 
+
+    
 }

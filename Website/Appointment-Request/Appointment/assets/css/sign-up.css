@@ -118,7 +118,7 @@ form button{
     padding: 8px 0;
     border-radius: 10px;
     cursor: pointer;
-    margin-top: 1rem;
+
     
 }
 form button:hover{
@@ -228,3 +228,21 @@ input:not(:focus):valid ~ .floating-label{
   transition: 0.2s ease all;
 }
 
+.modal{
+    color: rgb(211, 104, 104);
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.close{
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    padding: 0.2rem 0.4rem;
+    color: white;
+    font-weight: bold;
+    font: 1rem;
+    background-color: rgb(211, 104, 104);
+    border-radius: 50%;
+    cursor: pointer;
+}

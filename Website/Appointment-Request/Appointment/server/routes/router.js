@@ -79,11 +79,18 @@ route.get("/login", (req, res)=>{
 
 
 route.post('/register', controller3.create);
+route.get("/register", (req, res)=>{
+    res.render("register_body", {title: 'User Registration'})
+})
 
 
 // login user
 route.post('/login',(req, res)=>{
-    if(req.body.email == credential.email && req.body.password == credential.password){
+    var email = req.body.email
+    var username = req.body.username
+    var password = req.body.password
+
+    if((email == NewUserdb.findOne({p_email: email}) || username == NewUserdb.findOne({p_username: username})) && password == NewUserdb.find({p_password: password})){
         res.redirect('/add-appointmentRequest');
 
     }else{
@@ -102,8 +109,15 @@ route.get("/add-appointmentRequest", (req, res)=>{
 
 //route for register
 
-route.get("/register", (req, res)=>{
-    res.render("register_body", {title: 'User Registration'})
+
+
+route.post('/login',(req, res)=>{
+    if(req.body.email == credential.email && req.body.password == credential.password){
+        res.redirect('/add-appointmentRequest');
+
+    }else{
+        res.end("Invalid Username!")
+    }   
 })
 
 

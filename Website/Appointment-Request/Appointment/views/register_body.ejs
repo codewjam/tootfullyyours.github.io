@@ -9,6 +9,8 @@
     </div>
 
     <div class="sign-up-body">
+        <%-include('include/_messages')%>
+
         <div class="row1">
             <h3>Create An Account</h3>
             <div class="social-media-icons">
@@ -19,10 +21,10 @@
         <form action="/register" method="POST" onsubmit="validateForm()" name="myForm" required >
 
             <div class="form-group">
-                    <input type="text" id="username" minlength="6" maxlength="12" name="p_username" v-model:value="p_username" pattern="[A-Za-z0-9]+" onkeydown="if(['Space'].includes(arguments[0].code)){return false;}" placeholder="Username" >
-                    <input type="email" name="p_email" placeholder="email@example">
-                    <input type="password" id="p1" minlength="5" name="p_password" placeholder="Password" onkeyup="verification();">
-                    <input type="password" id="p2" name="p_cpassword" placeholder="Confirm Password" onkeyup="verification();">            
+                    <input type="text" id="username" minlength="6" maxlength="12" name="username" v-model:value="username" pattern="[A-Za-z0-9]+" onkeydown="if(['Space'].includes(arguments[0].code)){return false;}" placeholder="Username"  value="<%= typeof username != 'undefined' ? username: '' %>">
+                    <input type="email" name="email" placeholder="email@example" value="<%= typeof email != 'undefined' ? email: '' %>">  
+                    <input type="password" id="p1" minlength="5" name="password" placeholder="Password" onkeyup="verification();" value="<%= typeof email != 'undefined' ? password: '' %>">  
+                    <input type="password" id="p2" name="password2" placeholder="Confirm Password" onkeyup="verification();" value="<%= typeof email != 'undefined' ? password2: '' %>">            
                     <span id="Message"></span>
             </div>
 
