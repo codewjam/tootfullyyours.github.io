@@ -43,24 +43,24 @@ $("#update_employee").submit(function(event){
     });
 
 
-if(window.location.pathname == "/"){
-        $ondelete = $("#add-appointmentRequest tbody tr td a.delete");
-        $ondelete.click(function(){
+// if(window.location.pathname == "/Request"){
+//         $ondelete = $("#add-appointmentRequest tbody tr td a.delete");
+//         $ondelete.click(function(){
 
-            var id = $(this).attr("data-id")
-            var request = {
-                "url":`http://localhost:5000/api/appointmentRequest/${id}`,
-                "method": "DELETE"
-            }    
+//             var id = $(this).attr("data-id")
+//             var request = {
+//                 "url":`http://localhost:5000/api/appointmentRequest/${id}`,
+//                 "method": "DELETE"
+//             }    
 
-            if(confirm("Do you want to confirm this appointment request?")){
-                $.ajax(request).done(function(response){
-                    alert("Appointment Request Confirmed Successfully");
-                    location.reload();
-                })
-            }
-        })
-    }
+//             if(confirm("Do you want to confirm this appointment request?")){
+//                 $.ajax(request).done(function(response){
+//                     alert("Appointment Request Confirmed Successfully");
+//                     location.reload();
+//                 })
+//             }
+//         })
+//     }
 
     $("#search-box").on("keyup", function() {
         var value = $(this).val().toLowerCase();
@@ -69,43 +69,43 @@ if(window.location.pathname == "/"){
         });
     });
 
-if(window.location.pathname == "/appointment"){
-        $ondelete = $("#add-appointment tbody tr td a.delete");
-        $ondelete.click(function(){
+// if(window.location.pathname == "/appointment"){
+//         $ondelete = $("#add-appointment tbody tr td a.delete");
+//         $ondelete.click(function(){
 
-            var id = $(this).attr("data-id")
-            var request = {
-                "url":`http://localhost:5000/appointment/${id}`,
-                "method": "DELETE"
-            }    
+//             var id = $(this).attr("data-id")
+//             var request = {
+//                 "url":`http://localhost:5000/appointment/${id}`,
+//                 "method": "DELETE"
+//             }    
 
-            if(confirm("Do you want to confirm this appointment?")){
-                $.ajax(request).done(function(response){
-                    alert("Appointment Confirmed Successfully");
-                    location.reload();
-                })
-            }
-        })
-    }
+//             if(confirm("Do you want to confirm this appointment?")){
+//                 $.ajax(request).done(function(response){
+//                     alert("Appointment Confirmed Successfully");
+//                     location.reload();
+//                 })
+//             }
+//         })
+//     }
 
-if(window.location.pathname == "/history"){
-        $ondelete = $("#add-history tbody tr td a.delete");
-        $ondelete.click(function(){
+// if(window.location.pathname == "/history"){
+//         $ondelete = $("#add-history tbody tr td a.delete");
+//         $ondelete.click(function(){
 
-            var id = $(this).attr("data-id")
-            var request = {
-                "url":`http://localhost:5000/history/${id}`,
-                "method": "DELETE"
-            }    
+//             var id = $(this).attr("data-id")
+//             var request = {
+//                 "url":`http://localhost:5000/history/${id}`,
+//                 "method": "DELETE"
+//             }    
 
-            if(confirm("Do you want to confirm this transaction?")){
-                $.ajax(request).done(function(response){
-                    alert("Transaction Confirmed Successfully");
-                    location.reload();
-                })
-            }
-        })
-    }
+//             if(confirm("Do you want to confirm this transaction?")){
+//                 $.ajax(request).done(function(response){
+//                     alert("Transaction Confirmed Successfully");
+//                     location.reload();
+//                 })
+//             }
+//         })
+//     }
 
     
 if(window.location.pathname == "/employee"){
