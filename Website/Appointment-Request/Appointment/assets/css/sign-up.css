@@ -229,6 +229,7 @@ input:not(:focus):valid ~ .floating-label{
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .modal{
     color: rgb(211, 104, 104);
     width: 60%;
@@ -256,5 +257,7 @@ input:not(:focus):valid ~ .floating-label{
     border-radius: 50%;
     cursor: pointer;
 }
+=======
+>>>>>>> parent of bc832ad (progess 5)
 =======
 >>>>>>> parent of bc832ad (progess 5)

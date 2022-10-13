@@ -83,6 +83,7 @@ route.post('/register', controller3.create);
 
 // login user
 <<<<<<< HEAD
+<<<<<<< HEAD
 route.post('/login',(req, res, next)=>{
     passport.authenticate('local', {
         successRedirect: '/add-appointmentRequest',
@@ -90,6 +91,8 @@ route.post('/login',(req, res, next)=>{
         failureFlash: true
     })(req, res, next)
 =======
+=======
+>>>>>>> parent of bc832ad (progess 5)
 route.post('/login',(req, res)=>{
     if(req.body.email == credential.email && req.body.password == credential.password){
         res.redirect('/add-appointmentRequest');
@@ -97,12 +100,16 @@ route.post('/login',(req, res)=>{
     }else{
         res.end("Invalid Username!")
     }   
+<<<<<<< HEAD
+>>>>>>> parent of bc832ad (progess 5)
+=======
 >>>>>>> parent of bc832ad (progess 5)
 })
 
 //route for appointmentRequest
 
 
+<<<<<<< HEAD
 route.get("/add-appointmentRequest", ensureAuthenticated, (req, res)=>
     
         res.render("add_appointmentRequest", {
@@ -122,6 +129,18 @@ route.post('/login',(req, res)=>{
 
    
 =======
+route.get("/register", (req, res)=>{
+    res.render("register_body", {title: 'User Registration'})
+>>>>>>> parent of bc832ad (progess 5)
+=======
+route.get("/add-appointmentRequest", (req, res)=>{
+    
+        res.render("add_appointmentRequest")
+ 
+})
+
+//route for register
+
 route.get("/register", (req, res)=>{
     res.render("register_body", {title: 'User Registration'})
 >>>>>>> parent of bc832ad (progess 5)

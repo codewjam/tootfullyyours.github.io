@@ -26,6 +26,7 @@ exports.create = (req,res)=>{
             res.send(data);
         })
 <<<<<<< HEAD
+<<<<<<< HEAD
     }else{
         NewUserdb.findOne({p_email: email}).then(user =>{
             if(user){
@@ -59,11 +60,16 @@ exports.create = (req,res)=>{
         })
     }
 =======
+=======
+>>>>>>> parent of bc832ad (progess 5)
         .catch(err =>{
             res.status(500).send({
                 message: err.message || "Some error occured while creating a create operation"
             });
         });
+<<<<<<< HEAD
+>>>>>>> parent of bc832ad (progess 5)
+=======
 >>>>>>> parent of bc832ad (progess 5)
 
 
