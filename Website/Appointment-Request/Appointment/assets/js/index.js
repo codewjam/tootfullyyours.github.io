@@ -69,7 +69,7 @@ if(window.location.pathname == "/"){
         });
     });
 
-    if(window.location.pathname == "/appointment"){
+if(window.location.pathname == "/appointment"){
         $ondelete = $("#add-appointment tbody tr td a.delete");
         $ondelete.click(function(){
 
@@ -87,7 +87,8 @@ if(window.location.pathname == "/"){
             }
         })
     }
-    if(window.location.pathname == "/history"){
+
+if(window.location.pathname == "/history"){
         $ondelete = $("#add-history tbody tr td a.delete");
         $ondelete.click(function(){
 
@@ -105,4 +106,60 @@ if(window.location.pathname == "/"){
             }
         })
     }
+
+    
+if(window.location.pathname == "/employee"){
+    $ondelete = $("#add-employee tbody tr td a.delete");
+    $ondelete.click(function(){
+
+        var id = $(this).attr("data-id")
+        var request = {
+            "url":`http://localhost:5000/api/employee/${id}`,
+            "method": "DELETE"
+        }    
+
+        if(confirm("Do you want to remove this employee?")){
+            $.ajax(request).done(function(response){
+                alert("Employee Profile Deleted Successfully");
+                location.reload();
+            })
+        }
+    })
+}
+
+
+    
+
+function verification(){
+    if (document.getElementById("p1").value == document.getElementById("p2").value) {
+      document.getElementById("Message").style.color = "Green";
+      document.getElementById("Message").style.fontSize = "10px";
+      document.getElementById("Message").innerHTML = "Passwords match!"
+      return true;
+    } else {
+      document.getElementById("Message").style.color = "Red";
+      document.getElementById("Message").style.fontSize = "10px";
+      document.getElementById("Message").innerHTML = "Passwords do NOT match!"
+      return false;
+    }
+  }
+  
+  function validateForm()
+  {
+  
+      return false;
+  }
+  
+  function validateUserName(){
+     var username = document.getElementById("username").value;
+     var userdb =  req.body.p_name().value;
+  
+     if(username == userdb){
+      alert("Invalid Username")
+      return false;
+     }else{
+      return true;
+     }
+  }
+  
   

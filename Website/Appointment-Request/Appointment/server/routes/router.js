@@ -2,17 +2,18 @@
 
 
 const express = require('express');
-const route = express.Router()
-const services = require("../services/render")
-const controller = require("../controller/controller")
-const services1 = require("../services/employee_render")
-const controller1 = require("../controller/employee_controller")
-const services2 = require("../services/history_render")
-const controller2 = require("../controller/history_controller")
+const route = express.Router();
+const services = require("../services/render");
+const controller = require("../controller/controller");
+const services1 = require("../services/employee_render");
+const controller1 = require("../controller/employee_controller");
+const services2 = require("../services/history_render");
+const controller2 = require("../controller/history_controller");
+const controller3 = require("../controller/login_controller");
 
 // Routes for Home Route/Starting Route
 
-route.get('/', services.homeRoutes)
+route.get('/Request', services.Request)
 
 
 // Routes for Appointments
@@ -56,6 +57,73 @@ route.post('/history', controller2.create);
 route.get('/history-data', controller2.find);
 route.put('/history/:id', controller2.update);
 route.delete('/history/:id', controller2.delete);
+
+// Login
+
+const credential = {
+    email: "admin@gmail.com",
+    password: "admin123"
+}
+
+//Go to login page
+
+route.get("/login", (req, res)=>{
+    res.render("login_body", {title: 'Log-in'})
+})
+
+
+// Register
+
+
+route.post('/register', controller3.create);
+
+
+// login user
+route.post('/login',(req, res)=>{
+    if(req.body.email == credential.email && req.body.password == credential.password){
+        res.redirect('/add-appointmentRequest');
+
+    }else{
+        res.end("Invalid Username!")
+    }   
+})
+
+//route for appointmentRequest
+
+
+route.get("/add-appointmentRequest", (req, res)=>{
+    
+        res.render("add_appointmentRequest")
+ 
+})
+
+//route for register
+
+route.get("/register", (req, res)=>{
+    res.render("register_body", {title: 'User Registration'})
+})
+
+
+//route for logout
+
+route.get('/logout', (req, res) =>{
+
+    res.render("home_body", {title: "ToothFully", logout: "Logout Successfully"})
+})
+
+ route.get('/', (req, res) =>{
+     res.render("home_body", {title: "ToothFully"})
+})
+
+//route for about us
+
+route.get('/aboutUs', (req, res) =>{
+    res.render("about-us_body",{title: "About Us"})
+})
+
+route.get('/about-us', (req, res) =>{
+    res.render("about-us-no-account_body",{title: "About Us"})
+})
 
 
 

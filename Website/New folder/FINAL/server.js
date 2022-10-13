@@ -35,7 +35,7 @@ app.use(session({
 }));
 
 
-app.use('/route', router)
+app.use('/', router);
 
 //home route
 app.get('/', (req, res) =>{

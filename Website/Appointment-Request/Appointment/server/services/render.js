@@ -2,7 +2,7 @@
 
 const axios = require('axios');
 
-exports.homeRoutes = (req, res) =>{
+exports.Request = (req, res) =>{
     // Make a get request to /api/appointmentRequest
     axios.get("http://localhost:5000/api/appointmentRequest")
         .then(function(response){
