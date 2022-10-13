@@ -79,18 +79,25 @@ route.get("/login", (req, res)=>{
 
 
 route.post('/register', controller3.create);
-route.get("/register", (req, res)=>{
-    res.render("register_body", {title: 'User Registration'})
-})
 
 
 // login user
+<<<<<<< HEAD
 route.post('/login',(req, res, next)=>{
     passport.authenticate('local', {
         successRedirect: '/add-appointmentRequest',
         failureRedirect: '/login',
         failureFlash: true
     })(req, res, next)
+=======
+route.post('/login',(req, res)=>{
+    if(req.body.email == credential.email && req.body.password == credential.password){
+        res.redirect('/add-appointmentRequest');
+
+    }else{
+        res.end("Invalid Username!")
+    }   
+>>>>>>> parent of bc832ad (progess 5)
 })
 
 //route for appointmentRequest
@@ -106,6 +113,7 @@ route.get("/add-appointmentRequest", ensureAuthenticated, (req, res)=>
 
 //route for register
 
+<<<<<<< HEAD
 
 
 route.post('/login',(req, res)=>{
@@ -113,6 +121,10 @@ route.post('/login',(req, res)=>{
         res.redirect('/add-appointmentRequest');
 
    
+=======
+route.get("/register", (req, res)=>{
+    res.render("register_body", {title: 'User Registration'})
+>>>>>>> parent of bc832ad (progess 5)
 })
 
 

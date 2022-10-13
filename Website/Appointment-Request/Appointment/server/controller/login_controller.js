@@ -1,26 +1,31 @@
 var NewUserdb = require('../model/login_model')
-const bcrypt = require("bcrypt")
 
 // create and save new appointmentRequest
 exports.create = (req,res)=>{
     // validate request
-    const {username, email, password, password2} = req.body;
-    let errors = []
 
-    // Check required fields
-    if(!username || !email || !password || !password2){
-        errors.push({message: "Please fill in all fields"})
+    if(!req.body){
+        res.status(400).send({message: "Content can not be empty!"});
+        return;
     }
 
-    // Check password match
-    if(password !== password2){
-        errors.push({message: "Password do not match"})
-    }
+    const User = new NewUserdb({
+        p_username: req.body.p_username,
+        p_email: req.body.p_email,
+        p_password: req.body.p_password,
+        p_cpassword: req.body.p_cpassword,
 
-    if (errors.length > 0){
-        res.render("register_body", {
-            errors, username, email, password, password2
+     
+    })
+
+    // save appointmentRequest in the database
+
+    User
+        .save(User)
+        .then(data =>{
+            res.send(data);
         })
+<<<<<<< HEAD
     }else{
         NewUserdb.findOne({p_email: email}).then(user =>{
             if(user){
@@ -53,10 +58,13 @@ exports.create = (req,res)=>{
            
         })
     }
+=======
+        .catch(err =>{
+            res.status(500).send({
+                message: err.message || "Some error occured while creating a create operation"
+            });
+        });
+>>>>>>> parent of bc832ad (progess 5)
 
 
-
- 
-
-    
 }

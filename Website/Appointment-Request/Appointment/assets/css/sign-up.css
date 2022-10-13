@@ -118,7 +118,7 @@ form button{
     padding: 8px 0;
     border-radius: 10px;
     cursor: pointer;
-
+    margin-top: 1rem;
     
 }
 form button:hover{
@@ -228,6 +228,7 @@ input:not(:focus):valid ~ .floating-label{
   transition: 0.2s ease all;
 }
 
+<<<<<<< HEAD
 .modal{
     color: rgb(211, 104, 104);
     width: 60%;
@@ -255,3 +256,5 @@ input:not(:focus):valid ~ .floating-label{
     border-radius: 50%;
     cursor: pointer;
 }
+=======
+>>>>>>> parent of bc832ad (progess 5)

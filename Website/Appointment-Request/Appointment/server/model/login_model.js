@@ -4,9 +4,9 @@ const mongoose = require('mongoose');
 
 var NewUserSchema = new mongoose.Schema({
     p_username:{ type: String, required: true, unique: true},
-    p_email:{type: String, required: true, unique: true},
+    p_email:{type: String, required: true},
     p_password:{type: String, required: true},
-    p_date:{type: Date, default: Date.now}
+    p_cpassword:{type: String, required: true}
    
 })
 
