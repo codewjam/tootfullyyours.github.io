@@ -15,9 +15,6 @@ exports.Request = (req, res) =>{
 
 }
 
-exports.add_appointmentRequest = (req, res) =>{
-    res.render('add_appointmentRequest');
-}
 
 exports.Appointment = (req, res) =>{
     axios.get("http://localhost:5000/appointment-data")

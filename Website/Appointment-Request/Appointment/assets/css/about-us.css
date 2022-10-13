@@ -248,3 +248,15 @@ nav ul li a:hover:after{
 }
 
 
+
+.big{
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.small{
+    width: 15%;
+    margin-right: 0.5rem;
+
+}

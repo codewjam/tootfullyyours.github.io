@@ -11,6 +11,7 @@ const services2 = require("../services/history_render");
 const controller2 = require("../controller/history_controller");
 const controller3 = require("../controller/login_controller");
 const passport =require('passport')
+const { ensureAuthenticated } = require('../config/auth')
 
 
 
@@ -29,8 +30,6 @@ route.delete('/appointment/:id', controller.delete_appointment);
 
 // Routes for Appointmment Request
 
-
-route.get('/add-appointmentRequest', services.add_appointmentRequest);
 route.post('/api/appointmentRequest', controller.create);
 route.get('/api/appointmentRequest', controller.find);
 route.delete('/api/appointmentRequest/:id', controller.delete);
@@ -94,11 +93,13 @@ route.post('/login',(req, res, next)=>{
 //route for appointmentRequest
 
 
-route.get("/add-appointmentRequest", (req, res)=>{
+route.get("/add-appointmentRequest", ensureAuthenticated, (req, res)=>
     
-        res.render("add_appointmentRequest")
+        res.render("add_appointmentRequest", {
+            p_username: req.user.p_username
+        }));
  
-})
+
 
 //route for register
 
