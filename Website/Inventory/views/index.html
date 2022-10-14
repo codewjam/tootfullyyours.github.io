@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Inventory List</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@700&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!--Header-->
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/Request">Requests</a></li>
+                    <li><a href="/appointment">Appointment</a></li>
+                    <li><a href="/history">Patient</a></li>
+                    <li><a href="/employee">Employee</a></li>
+                </ul>
+            </nav>
+            <nav>           
+                <ul>
+                    <li><a href="">Inventory</a></li>
+                    <li><a href="">Finance</a></li>
+                    <li><a href="/logout"><button class="logout-btn">Logout</button></a></li>    
+                </ul>
+            </nav>
+        </header>
+
+
+
+    <!--/Header-->
+
+    <!--Main Site-->
+
+        <main id="inventory-main">
+            <div class="container">
+                <div class="box-nav d-flex justify-between">
+                    <a href="/add- item" class="border-shadow">
+                        <span class="text-gradient">Add Item</span>
+                    </a>
+                </div>
+
+                <!-- form handling-->
+                <form action="/" method="POST">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Item/Description</th>
+                                <th>Room/Area</th>
+                                <th>Make/Model</th>
+                                <th>Serial Number/ID</th>
+                                <th>Place of Purchase</th>
+                                <th>Date Purchased</th>
+                                <th>Quantity</th>
+                                <th>Purchase Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bulk Fill</td>
+                                <td>Treatment A</td>
+                                <td>Tetric 100</td>
+                                <td>324034893</td>
+                                <td>Top Core Dental Corporation</td>
+                                <td>08/26/2002</td>
+                                <td>20</td>
+                                <td>2652.00</td>
+                                <td>
+                                    <a href="#" class="btn border-shadow update">
+                                        <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                                    </a>
+                                    <a href="#" class="btn border-shadow delete">
+                                        <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                    </a>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </main>
+
+    <!--/Main Site-->
+</body>
+</html>

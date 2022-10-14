@@ -1,0 +1,43 @@
+<!-- include header -->
+    <%- include ('include/_header')%>
+<!-- include header -->
+
+    <!--Main Site-->
+
+    <main id="inventory-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <a href="/add-item" class="border-shadow">
+                    <span class="text-gradient">Add Item</span>
+                </a>
+            </div>
+
+            <!-- form handling-->
+            <form action="/" method="POST">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Item/Description</th>
+                            <th>Room/Area</th>
+                            <th>Make/Model</th>
+                            <th>Serial Number/ID</th>
+                            <th>Place of Purchase</th>
+                            <th>Date Purchased</th>
+                            <th>Quantity</th>
+                            <th>Purchase Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%-include('include/_show')%>   
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+
+<!--/Main Site-->
+
+<!-- include footer -->
+<%- include ('include/_footer')%>
+<!-- include footer -->
