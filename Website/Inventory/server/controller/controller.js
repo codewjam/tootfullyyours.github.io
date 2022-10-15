@@ -34,7 +34,7 @@ exports.create = (req,res) =>{
         });
 }
 
-//retrieve and return all items/retrieve and return  a single item
+//retrieve and return all items/retrieve and return a single item
 exports.find = (req, res)=>{
 
     if(req.query.id){
@@ -74,7 +74,7 @@ exports.update = (req,res) =>{
     }
     
     const id = req.params.id;
-    Itemdb.findByIdAndUpdate(id, req.body, {useFindAndModify: false})
+    Itemdb.findByIdAndUpdate(id, req.body,{useFindAndModify:false})
         .then(data =>{
             if(!data){
                 res.status(404).send({message:`Cannot Update Item with ${id}. Maybe item not found!`})

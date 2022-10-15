@@ -14,14 +14,15 @@ var schema = new mongoose.Schema({
     },
     serialnumber : {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     place : {
         type: String,
         required: true
     },
     date : {
-        type: String,
+        type: Date,
         required: true
     },
     quantity : {
