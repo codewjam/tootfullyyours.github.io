@@ -35,13 +35,33 @@ exports.create = (req,res) =>{
 
 //retrieve and return all items/retrieve and return  a single item
 exports.find = (req, res)=>{
-    Itemdb.find()
-    .then(item =>{
-        res.send(item)
-    })
-    .catch(err =>{
-        res.status(500).send({ message : err.message || "Error Occured  while retrieving item information"})
-    })
+
+    if(req.query.id){
+        const id = req.query.id;
+
+        Itemdb.findById(id)
+            .then(data =>{
+                if(!data){
+                    res.status(404).send({message: "Not found item with id"+ id})
+                }else{
+                    res.send(data)
+                }
+            })
+            .catch(err =>{
+                res.status(500).send({message : "Error retrieving item with id" + id})
+            })
+
+    }else{
+        Itemdb.find()
+            .then(item =>{
+                res.send(item)
+            })
+            .catch(err =>{
+                res.status(500).send({ message : err.message || "Error Occured  while retrieving item information"})
+            })
+
+    }
+    
 }
 
 //Update a new identified item by item id
@@ -68,7 +88,7 @@ exports.update = (req,res) =>{
 
 }
 
-//Delete a item with specified item id in the request
+//Delete an item with specified item id in the request
 exports.delete = (req, res)=>{
     const id = req.params.id; 
 
