@@ -24,13 +24,8 @@ a{
 
 /* Header */
 .container{
-    max-width: 1500px;
+    max-width: 1450px;
     margin: auto;
-    position: fixed;
-    top: 220px;
-    right: 290px;
-   
-
 }
 
 
