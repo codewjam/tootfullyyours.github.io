@@ -21,32 +21,38 @@
             <form method="POST" id="update_item">
                 <div class="new_item">
                     <div class="form-group">
-                        <label for="item" class="text-light">Item/Description</label>
-                        <input type="text" name="itemname" value="">
+                        <label for="itemname" class="text-light">Item/Description</label>
+                        <input type="hidden" name="id" value="<%= item._id%>">
+                        <input type="text" name="itemname" value="<%=item.itemname %>">
                     </div>
                     <div class="form-group">
                         <label for="room" class="text-light">Room/Area</label>
-                        <input type="text" name="room" value="">
+                        <input type="text" name="room" value="<%=item.room %>">
                     </div>
                     <div class="form-group">
                         <label for="model" class="text-light">Make/Model</label>
-                        <input type="text" name="model" value="">
+                        <input type="text" name="model" value="<%= item.model %>">
                     </div>
                     <div class="form-group">
-                        <label for="serial" class="text-light">Serial Number/ID</label>
-                        <input type="text" name="serial" value="">
+                        <label for="serialnumber" class="text-light">Serial Number/ID</label>
+                        <input type="text" name="serialnumber" value="<%= item.serialnumber %>">
                     </div>
                     <div class="form-group">
                         <label for="place" class="text-light">Place of Purchase</label>
-                        <input type="text" name="place" value="">
+                        <input type="text" name="place" value="<%= item.place %>">
                     </div>
+                    
                     <div class="form-group">
                         <label for="date" class="text-light">Date Purchased</label>
-                        <input type="date" name="date" id="datebuy">
+                        <input type="date" name="date" id="datebuy" value="<%= item.startDate%>">
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity" class="text-light">Quantity</label>
+                        <input type="text" name="quantity" value="<%= item.quantity %>">
                     </div>
                     <div class="form-group">
                         <label for="price" class="text-light">Purchase Price</label>
-                        <input type="text" name="price" value="" placeholder="00.00">
+                        <input type="text" name="price" value="<%= item.price %>" placeholder="00.00">
                     </div>
 
                     <div class="form-group">

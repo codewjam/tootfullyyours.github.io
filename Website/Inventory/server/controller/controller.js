@@ -24,7 +24,8 @@ exports.create = (req,res) =>{
     item
         .save(item)
         .then(data =>{
-            res.send(data)
+            //res.send(data)
+            res.redirect('/add-item')
         })
         .catch(err =>{
             res.status(500).send({
