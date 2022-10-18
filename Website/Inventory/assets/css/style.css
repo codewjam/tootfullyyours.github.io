@@ -22,13 +22,13 @@ a{
     font-family: 'Figtree', sans-serif;
 }
 
-/* Header */
+
 .container{
-    max-width: 1450px;
+    max-width: 1550px;
     margin: auto;
 }
 
-
+/* Header */
 header{
     background-color: var(--navbg);
     font-size: 1.2rem;
@@ -41,7 +41,6 @@ header{
 }
 
 /* Navigation */
-
 
 nav{
     padding: 0 2rem;
@@ -257,7 +256,7 @@ table{
 }
 
 #update_item .form-group input[type="text"],input[type="date"],
-#add_item .form-group input[type="text"] {
+#add_item .form-group input[type="text"], input[type="date"] {
     width: 100%;
     padding: .5em 1em;
     margin: .4em 0;

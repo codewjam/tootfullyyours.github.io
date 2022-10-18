@@ -5,28 +5,25 @@ const services = require('../services/render');
 const controller = require('../controller/controller');
 
 /**
- * @description Root Route
- * @method GET /
+ *  @description Root Route
+ *  @method GET /
  */
-
-
 route.get('/', services.homeRoutes);
 
 /**
- * @description add items
- * @method GET /add-item 
+ *  @description add items
+ *  @method GET /add-item
  */
-
 route.get('/add-item', services.add_item)
 
 /**
- * @description update items
- * @method GET /update-item 
+ *  @description for update item
+ *  @method GET /update-item
  */
-
 route.get('/update-item', services.update_item)
 
-//API
+
+// API
 route.post('/api/items', controller.create);
 route.get('/api/items', controller.find);
 route.put('/api/items/:id', controller.update);
