@@ -5,3 +5,5 @@ sumVal = sumVal + parseInt(table.rows[i].cells[2].innerHTML);
 }
 document.getElementById("val").innerHTML = parseInt(sumVal);
 console.log(sumVal);
+
+

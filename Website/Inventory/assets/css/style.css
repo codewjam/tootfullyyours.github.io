@@ -158,6 +158,10 @@ nav ul li a:hover:after{
 
 /* table format */
 
+.fas, a {
+    color:#00A39A;
+}
+
 #inventory-main{
     margin-top: 4em;
     font-family: 'Figtree', sans-serif;
@@ -224,6 +228,13 @@ table{
         border:none;
         position: relative;
     }
+}
+
+.total {
+    position: absolute;
+    top: 520px;
+    right: 500px;
+    color: #00A39A;
 }
 
 /* add item and update template */
